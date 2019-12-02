@@ -1,0 +1,101 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+int main() {
+  int sayi;
+  cout << "Cevirmek istediginiz sayiyi giriniz.";
+  cin >> sayi;
+
+ if(sayi>=4000 && sayi <=0){
+    cout<<"lütfen 1 ile 4000 arasinda bir sayi giriniz"<<endl;
+
+ }
+
+
+ if (sayi < 4000 && sayi >0){
+ 				int sezar;
+ 					sezar=sayi/1000;
+           					 while(sezar>0){
+                				cout<<"M";
+                					sezar=sezar-1;}
+ 				int alesia;
+            		alesia=(sayi%1000)/100;
+ 						if(alesia==9){
+ 							cout<<"CM";}
+ 						if(alesia>=5&&alesia!=9){
+ 				int pompey;
+ 					pompey=alesia-5;
+ 							cout<<"D";
+                			while(pompey>0){
+                    		cout<<"C";
+                    pompey=pompey-1;}}
+		if(alesia==4){
+			cout<<"CD";}
+		if(alesia<4){
+			while(alesia>0){
+				cout<<"C";
+				alesia=alesia-1;}}
+				int kohort;
+            kohort=((sayi%100)/10);
+						if(kohort==9){
+							cout<<"XC";}
+						if(kohort==5){
+							cout<<"L";}
+						if(kohort>5&&kohort!=9){
+							cout<<"L";
+								while(kohort>=6){
+							cout<<"X";
+						kohort=kohort-1;}}
+						if(kohort==4){
+							cout<<"XL";}
+						if(kohort<4){
+								while(kohort>0){
+							cout<<"X";
+								kohort=kohort-1;}}
+					int preatorian;
+							preatorian=sayi%10;
+						if(preatorian==9){
+								cout<<"IX";	}
+						if(preatorian==5){
+							cout<<"V";}
+						if(preatorian==4){
+							cout<<"IV";}
+						if(preatorian>5&&preatorian!=9){
+								cout<<"V";
+							while(preatorian>5){
+				cout<<"I";
+				preatorian=preatorian-1;}}
+		if(preatorian<5&&preatorian!=4){
+			while(preatorian>0){
+				cout<<"I";
+				preatorian=preatorian-1;}}}
+				else{
+                    cout<<"lutfen 0 ile 4000 arasi bir tamsayi giriniz."<<endl;
+				}
+		cout<<" "<<endl;
+	string sym[] = { "I","V", "X", "L","C", "D", "M"};
+	int num[] = { 1,5,10,50,100,500,1000 };
+	string SPQR;
+        cout<<"Cevirmek istediginiz Roma sayisini giriniz."<<endl;
+        cin >> SPQR;
+            vector< int > arr;
+                for (int i = 0; i < SPQR.length(); i++) {
+                    string k = "";
+                        k = k + SPQR[i];
+                for (int j = 0; j < 14; j++) {
+        if (k == sym[j]) {
+				arr.push_back(num[j]);
+        break;}}}
+	int sonuc = 0;
+        for (int i = 0; i < arr.size(); i++) {
+            if (i == arr.size()-1) {
+                sonuc += arr[i];
+			break;}
+                if (arr[i] < arr[i + 1]) sonuc -= arr[i];
+                    else sonuc += arr[i];}
+    cout << sonuc;
+
+
+		return 0;
+}
